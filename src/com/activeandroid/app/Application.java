@@ -17,12 +17,14 @@ package com.activeandroid.app;
  */
 
 import com.activeandroid.ActiveAndroid;
+import com.activeandroid.Configuration;
 
 public class Application extends android.app.Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		ActiveAndroid.initialize(this);
+		Configuration config = new Configuration.Builder(this).setCacheSize(1).create();
+        ActiveAndroid.initialize(config);
 	}
 	
 	@Override
